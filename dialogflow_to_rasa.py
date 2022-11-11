@@ -23,9 +23,9 @@ def domain():
     
     with open('response.yaml','a') as file:
         name = 'utter_' + intent_name
-        yaml.dump({name: {'text' : response,'image' : 'sdfsd'}},file)
+        yaml.dump({name: {'text' : response}},file)
 
-folder = 'test\intents'
+folder = 'n'
 for file in os.listdir(folder):
     path = os.path.join(folder,file)
     print(path)
