@@ -1,11 +1,10 @@
 #pip3 install flask
 #pip3 install dialogflow
-from flask import Flask
-from flask import request, jsonify
 import os
-from google.cloud import dialogflow # this has been changed 
-from google.api_core.exceptions import InvalidArgument
 import requests
+from flask import Flask, jsonify, request
+from google.api_core.exceptions import InvalidArgument
+from google.cloud import dialogflow  # this has been changed
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "private_key.json"
 
