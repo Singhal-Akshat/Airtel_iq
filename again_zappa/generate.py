@@ -62,32 +62,43 @@ class generate_type:
     def check_param(self):
         dict = self.parameters
         if(len(dict)) :
-            if dict['from']!='' or dict['to']!='': 
-                if('boarding' == self.response.lower()):
-                    print(dict['from'])
-                    self.possible_list(dict['from'])
-                    return True
-                if('destination' == self.response.lower()):
-                    print(dict['to'])
-                    self.possible_list(dict['to'])
-                    return True
-            
-            for key,value in self.parameters.items():
-                if value=="":
-                    return False
+            if (self.intent_name.split('_')[1] == 'places'):
+                if dict['city']!='':
+                    if('type'  == self.response.lower()):
+                        self.possible_list(dict['city'])
+                        return True
+                for key,value in self.parameters.items():
+                    if value=="":
+                        return False
+
+            else:
+                if dict['from']!='' or dict['to']!='': 
+                    if('boarding' == self.response.lower()):
+                        print(dict['from'])
+                        self.possible_list(dict['from'])
+                        return True
+                    if('destination' == self.response.lower()):
+                        print(dict['to'])
+                        self.possible_list(dict['to'])
+                        return True
+                for key,value in self.parameters.items():
+                    if value=="":
+                        return False
             
             return self.generate_links()
 
     def generate_links(self):
-        transport = self.intent_name.split('_')[1].lower()
+        intent = self.intent_name.split('_')[1].lower()
         dict = self.parameters
-        variable = [dict['from'],dict['to'],dict['date'][:10]]
+        
 
-        if transport == 'train':
+        if intent == 'train':
+            variable = [dict['from'],dict['to'],dict['date'][:10]]
             url = "?from_code="+dict['from2']+"&journey_date="+dict['date'][:10]+"&to_code=" +dict['to2']
             self.ob.template("5ac1c243-a21d-43b7-97fc-da624c00df20",variable,url)
-            
-        elif transport == 'flight':
+            self.custom_button("Want to Book another ticket?","Yes,No")
+        elif intent == 'flight':
+            variable = [dict['from'],dict['to'],dict['date'][:10]]
             date = dict['date'][:10]
             year = date[:4]
             mon = date[5:7]
@@ -97,19 +108,34 @@ class generate_type:
             url = "search?itinerary="+dict['from2']+"-"+dict['to2']+"-"+day+"/"+mon+"/"+year+"&tripType=O&paxType=A-"+passenger+"_C-0_I-0&cabinClass=E"
             variable.append(passenger)
             self.ob.template("46e838f2-8158-4702-b165-c1a125497169",variable,url)
-        
-        self.custom_button("Want to Book another ticket?","Yes,No",'','')
+            self.custom_button("Want to Book another ticket?","Yes,No")
+        elif intent == 'places':
+            city = self.parameters['city']
+            type = self.parameters['type']
+            self.locations(city,type)
+            self.custom_button("Want to book hotels or see transportation?","See another place,Hotel Bookings,Book Your Transport")
         return True
 
     def possible_list(self,value):
-        transport = self.intent_name.split('_')[1].lower()
-        print(transport)
-        if(transport == 'train'):
+        intent = self.intent_name.split('_')[1].lower()
+        print(intent)
+        if(intent == 'train'):
             self.train_list(value)
-        elif transport == 'flight':
-            print(transport)
+        elif intent == 'flight':
             self.airport_list(value)
+        elif intent == 'places':
+            self.types_list(value)
     
+    def types_list(self,value):
+        l = ['Tourist Point','Amusement park','Spiritual','Museum and Art','Zoo and Aquariam','Night Club','Casino','Stadium']
+        opt = []
+        for i in range(0,min(10,len(l))):
+            d = {"tag" : l[i], "title" : l[i]}
+            opt.append(d)
+        msg = "Select the types of Places you want to see in" + value + "from the options below"
+        heading = "Select Location Type"
+        self.ob.lists(msg,heading, opt)
+
     def train_list(self,city):
         l = []
         with open('data.csv','r') as file:
@@ -146,7 +172,7 @@ class generate_type:
             opt.append(d)
         self.ob.lists(msg,heading, opt)
     
-    def custom_button(self,msg,b,type,url):
+    def custom_button(self,msg,b,type='',url=''):
         but = b.split(',')
         button =[]
         for i in range(len(but)):

@@ -35,14 +35,14 @@ def home():
     r = request.get_json()
     print(r)
     
-    # time_stamp = time.time()
-    # print(time_stamp)
-    # tm= float(r['message']['timestamp'])
-    # tm = tm/1000
-    # print(tm)
-    # delta = time_stamp - tm
-    # if(delta > 120) :
-    #     return ""
+    time_stamp = time.time()
+    print(time_stamp)
+    tm= float(r['message']['timestamp'])
+    tm = tm/1000
+    print(tm)
+    delta = time_stamp - tm
+    if(delta > 120) :
+        return ""
 
     # global flag
     # print(flag)
@@ -104,8 +104,8 @@ def home():
     print(type)
     o = generate_type(res,sessionId,mobnum,intent_name,param)
     #temporary
-    o.locations('Dehradun','Adventure')
-    return 'trying'
+    # o.locations('Dehradun','Adventure')
+    # return 'trying'
     o.find(type)
    
     return response.query_result. fulfillment_text

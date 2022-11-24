@@ -5,41 +5,48 @@ class generate_locations():
     key = "AIzaSyCTvLmX7b6eQKf3JqYLSVKeu7MqyM2Yar4"
     payload ={}
     headers ={}
+    types = {'Tourist Point' : ['tourist_attraction','point_of_interest'] ,'Amusement park' : ['amusement_park'],'Spiritual': ['hindu_temple','mosque','church'],'Museum and Art':['museum','art_gallery'],'Zoo and Aquarium':['aquarium','zoo'],'Night Club' :['night_club','bar'],'Casino':['casino'],'Stadium' : 'stadium'}
     def search(self,city,type):
-        url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+type+"%20in%20"+city+"&key="+self.key
-        response = requests.request("GET",url, headers=self.headers, data=self.payload).json()
-        # print(response)
         data = []
-        for d in response['results']:
-           try:
-            img_ref = d['photos'][0]['photo_reference']
-           except:
-            continue
-           name = d['name']
-           lat = d['geometry']['location']['lat']
-           long = d['geometry']['location']['lng']
-           id = d['place_id']
-           rating = d['rating']
-           user_rating = d['user_ratings_total']
-           types=""
+        city =city.replace(" ","%20")
+        for t in self.types[type]:
+            print(t)
+            url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+city+"&type="+t+"&key="+self.key
+            response = requests.request("GET",url, headers=self.headers, data=self.payload).json()
+            # print(len(response['results']))
+            # print(response['results'])
+            for d in response['results']:
+                try:
+                    img_ref = d['photos'][0]['photo_reference']
+                except:
+                    print("inside this")
+                    continue
+                name = d['name']
+                lat = d['geometry']['location']['lat']
+                long = d['geometry']['location']['lng']
+                id = d['place_id']
+                rating = d['rating']
+                user_rating = d['user_ratings_total']
+                types=""
 
-           for t in d['types']:
-                g = t.split('_')
-                for h in g:
-                    types += h +' '
-                types =types[:-1]
-                types+=', '
-           types = types[:-2]
-           
-           location_link = self.get_link(lat,long,id)
-           image_link = self.get_image(img_ref)
+                for t in d['types']:
+                        g = t.split('_')
+                        for h in g:
+                            types += h +' '
+                        types =types[:-1]
+                        types+=', '
+                types = types[:-2]
+                
+                location_link = self.get_link(lat,long,id)
+                image_link = self.get_image(img_ref)
 
-           temp = [rating,name,types,image_link,location_link,user_rating,]
+                temp = [rating,name,types,image_link,location_link,user_rating]
 
-           data.append(temp)
+                data.append(temp)
+                # print(data)
         
         data.sort(reverse=True, key=self.myfunc)
-        return data[:6]
+        return data[:min(6,len(data))]
     def myfunc(self,e):
         return e[-1]
     def get_link(self,lat,long,id):
@@ -52,7 +59,7 @@ class generate_locations():
 # def myfunc(e):
 #     return e[0]
 # ob = generate_locations()
-# data = ob.search('Dehradun','Adventure')
+# data = ob.search('Dehradun','Tourist Point')
 # # data.sort(reverse=True, key=myfunc)
 # for d in data:
 #     print(d)
@@ -67,13 +74,14 @@ class generate_locations():
 # print(response.text)
 
 
-# url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=attraction%20in%20dehrdun&reviews=true&key=AIzaSyCTvLmX7b6eQKf3JqYLSVKeu7MqyM2Yar4"
+# url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=dehradun&type=tourist_attraction&key=AIzaSyCTvLmX7b6eQKf3JqYLSVKeu7MqyM2Yar4"
 
 # payload={}
 # headers = {}
 
 # response = requests.request("GET", url, headers=headers, data=payload)
-# #https://www.google.com/maps/search/?api=1&query=30.3354345%2C78.13910010000001&query_place_id=ChIJnZDGsrEnCTkRdRAfSMflOm4
+# print(response.text)
+# # #https://www.google.com/maps/search/?api=1&query=30.3354345%2C78.13910010000001&query_place_id=ChIJnZDGsrEnCTkRdRAfSMflOm4
 # ob1 = response.json()
 # print(len(ob1['results']))
 # print("Name = ",end="")
@@ -99,7 +107,7 @@ class generate_locations():
 # print("Rating = ",end="")
 # print(ob1['results'][0]['rating'])
 
-# print(response.text)
+
 # url2 = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=AW30NDwKgs4zDEwKemKectZjKgOu_FFT2nPVjBLplVRqZEG2NhI1WxaUk5MSTcpjtoXZhrcCqOpo3AiHhl9v-H-dUmfqeqA1YVq20SdYnL1r1oBIRzmy-t00TIZQf6IB_K_pOn0cvz1vrL--YBGHpmvBXr32QsnOLMCObFUHUhJ0P2Tow5Bs&key=AIzaSyCTvLmX7b6eQKf3JqYLSVKeu7MqyM2Yar4"
 
 # response2= requests.request("GET", url2, headers=headers, data=payload)
