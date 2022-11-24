@@ -11,6 +11,8 @@ headers = {
 }
 
 response = requests.request("GET", url, headers=headers, params=querystring)
+
+# exit(1)
 objekt=response.json()
 #gets destination_id
 destination_id=objekt['suggestions'][0]['entities'][0]['destinationId']
@@ -40,18 +42,19 @@ headers = {
 }
 
 response_hotel = requests.request("GET", url, headers=headers, params=querystring)
-
+print(response_hotel.text)
+exit(1)
 hotel_objekt=response_hotel.json()
 
 #refundable returns boolean value
 
-hotel_name= hotel_objekt['searchResults']['results'][1]['name']
-hotel_id= hotel_objekt['searchResults']['results'][1]['id']
-hotel_price=hotel_objekt['searchResults']['results'][1]['ratePlan']['price']['current']
+hotel_name= hotel_objekt['searchResults']['results'][1]['name'] #this
+hotel_id= hotel_objekt['searchResults']['results'][1]['id'] #
+hotel_price=hotel_objekt['searchResults']['results'][1]['ratePlan']['price']['current']#this
 hotel_coordinates=hotel_objekt['searchResults']['results'][1]['coordinate']
-hotel_ratings=hotel_objekt['searchResults']['results'][1]['starRating']
+hotel_ratings=hotel_objekt['searchResults']['results'][1]['starRating'] #this
 hotel_refundable=hotel_objekt['searchResults']['results'][1]['ratePlan']['features']['freeCancellation']
-hotel_address=hotel_objekt['searchResults']['results'][1]['address']['streetAddress']+","+hotel_objekt['searchResults']['results'][1]['address']['extendedAddress']+","+hotel_objekt['searchResults']['results'][1]['address']['locality']+","+hotel_objekt['searchResults']['results'][1]['address']['region']+","+hotel_objekt['searchResults']['results'][1]['address']['countryName']
+hotel_address=hotel_objekt['searchResults']['results'][1]['address']['streetAddress']+","+hotel_objekt['searchResults']['results'][1]['address']['extendedAddress']+","+hotel_objekt['searchResults']['results'][1]['address']['locality']+","+hotel_objekt['searchResults']['results'][1]['address']['region']+","+hotel_objekt['searchResults']['results'][1]['address']['countryName'] 
 print(hotel_name,hotel_id,hotel_price,hotel_coordinates,hotel_ratings,hotel_refundable,hotel_address)
 
 
