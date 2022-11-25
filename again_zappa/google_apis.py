@@ -1,11 +1,11 @@
 # 30.270265, 77.992899
 import requests
-
+import json
 class generate_locations():
     key = "AIzaSyCTvLmX7b6eQKf3JqYLSVKeu7MqyM2Yar4"
     payload ={}
     headers ={}
-    types = {'Tourist Point' : ['tourist_attraction','point_of_interest'] ,'Amusement park' : ['amusement_park'],'Spiritual': ['hindu_temple','mosque','church'],'Museum and Art':['museum','art_gallery'],'Zoo and Aquarium':['aquarium','zoo'],'Night Club' :['night_club','bar'],'Casino':['casino'],'Stadium' : 'stadium'}
+    types = {'Tourist Point' : ['tourist_attraction','point_of_interest'] ,'Amusement park' : ['amusement_park'],'Spiritual': ['hindu_temple','mosque','church'],'Museum and Art':['museum','art_gallery'],'Zoo and Aquarium':['aquarium','zoo'],'Night Club' :['night_club','bar'],'Casino':['casino'],'Stadium' : ['stadium']}
     def search(self,city,type):
         data = []
         city =city.replace(" ","%20")
@@ -22,6 +22,13 @@ class generate_locations():
                     print("inside this")
                     continue
                 name = d['name']
+                flag = False
+                for n in data:
+                    if name == n[1]:
+                        flag = True
+                        break
+                if(flag):
+                    continue
                 lat = d['geometry']['location']['lat']
                 long = d['geometry']['location']['lng']
                 id = d['place_id']
@@ -30,11 +37,13 @@ class generate_locations():
                 types=""
 
                 for t in d['types']:
-                        g = t.split('_')
-                        for h in g:
-                            types += h +' '
-                        types =types[:-1]
-                        types+=', '
+                    if t=='point_of_interest' or t=='establishment':
+                        continue
+                    g = t.split('_')
+                    for h in g:
+                        types += h +' '
+                    types =types[:-1]
+                    types+=', '
                 types = types[:-2]
                 
                 location_link = self.get_link(lat,long,id)
@@ -50,7 +59,8 @@ class generate_locations():
     def myfunc(self,e):
         return e[-1]
     def get_link(self,lat,long,id):
-        url = "https://www.google.com/maps/search/?api=1&query="+str(lat)+"%2C"+str(long)+"&query_place_id="+id
+        # url = "https://www.google.com/maps/search/?api=1&query="+str(lat)+"%2C"+str(long)+"&query_place_id="+id
+        url = "?api=1&query="+str(lat)+"%2C"+str(long)+"&query_place_id="+id
         return url
     
     def get_image(self,id):
@@ -74,13 +84,13 @@ class generate_locations():
 # print(response.text)
 
 
-# url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=dehradun&type=tourist_attraction&key=AIzaSyCTvLmX7b6eQKf3JqYLSVKeu7MqyM2Yar4"
+# url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=dehradun&type=airport&key=AIzaSyCTvLmX7b6eQKf3JqYLSVKeu7MqyM2Yar4"
 
 # payload={}
 # headers = {}
 
 # response = requests.request("GET", url, headers=headers, data=payload)
-# print(response.text)
+# print(response.json())
 # # #https://www.google.com/maps/search/?api=1&query=30.3354345%2C78.13910010000001&query_place_id=ChIJnZDGsrEnCTkRdRAfSMflOm4
 # ob1 = response.json()
 # print(len(ob1['results']))
