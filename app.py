@@ -10,7 +10,7 @@ from send import sendMessage
 from generate import generate_type
 import time
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "private_key.json" # your api key file obtained from GCP
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "private_key.json"
 
 DIALOGFLOW_PROJECT_ID = "newagent-xojq"
 DIALOGFLOW_LANGUGAE_CODE = "en"
