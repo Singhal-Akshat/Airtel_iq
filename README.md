@@ -20,7 +20,6 @@ Chatbot has three main features:
 3. Transport Booking
 
 <br>
-<br>
 1. Chatbot can show famous places based on your prefernence for a particular location
 <br>
 <br>
