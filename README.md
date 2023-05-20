@@ -23,24 +23,31 @@ Chatbot has three main features:
 1. Chatbot can show famous places based on your prefernence for a particular location
 <br>
 <br>
-<img width="250px" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/1.jpg"><img width="250px" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/2.jpg"><img width="250px" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/3.jpg">
+<p float="left">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/1.jpg">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/2.jpg">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/3.jpg">
+ </p>
 <br>
 <br>
 2. Hotel Booking
 <br>
 <br>
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/a5846554-d326-4e06-9fba-be0129b5649b">
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/593363c1-52b0-448d-b692-7c6a84b689fd">
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/1ab9a40d-d5dc-40fb-bcd4-2a8789380c1b">
+<p float="left">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/7.jpg">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/8.jpg">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/9.jpg">
+ </p>
 <br>
 <br>
 3. Transport Booking: (Flight, Train, Bus)
 <br>
 <br>
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/a215c3c3-8cbb-444c-a8fa-9e22d21795e4">
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/5ae3a6ea-56ac-4a95-a62c-e5367bebe7b9">
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/5336e13f-3443-43e3-9ea9-990d72acd35e">
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/cdea5139-8cf3-4cfc-acf4-cefc3712bf93">
+<p float="left">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/17.jpg">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/18.jpg">
+  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/19.jpg">
+ </p>
 <br>
 <br>
 Demo Video Link: https://drive.google.com/file/d/1nVr9c3LURFoSbDnAnkQpjYEx8NwoS2Jw/view?usp=share_link
