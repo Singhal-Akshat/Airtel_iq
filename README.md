@@ -23,9 +23,7 @@ Chatbot has three main features:
 1. Chatbot can show famous places based on your prefernence for a particular location
 <br>
 <br>
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/7ab1188d-73da-426f-b92d-b47d11f56685">
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/dc48aff6-9d94-4cb2-a697-5b7e920c31ab">
-<img width="300px" src="https://github.com/Singhal-Akshat/Airtel_iq/assets/100532934/54fe56bf-c66a-4b57-b1c0-cd61c762e67f">
+<img width="250px" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/1.jpg"><img width="250px" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/2.jpg"><img width="250px" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/3.jpg">
 <br>
 <br>
 2. Hotel Booking
