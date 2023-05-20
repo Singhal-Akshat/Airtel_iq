@@ -24,9 +24,9 @@ Chatbot has three main features:
 <br>
 <br>
 <p float="left">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/1.jpg">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/2.jpg">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/3.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/1.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/2.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/3.jpg">
  </p>
 <br>
 <br>
@@ -34,9 +34,9 @@ Chatbot has three main features:
 <br>
 <br>
 <p float="left">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/7.jpg">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/8.jpg">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/9.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/7.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/8.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/9.jpg">
  </p>
 <br>
 <br>
@@ -44,9 +44,9 @@ Chatbot has three main features:
 <br>
 <br>
 <p float="left">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/17.jpg">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/18.jpg">
-  <img width="33%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/19.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/17.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/18.jpg">
+  <img width="30%" src="https://github.com/Singhal-Akshat/Airtel_iq/blob/main/assets/19.jpg">
  </p>
 <br>
 <br>
